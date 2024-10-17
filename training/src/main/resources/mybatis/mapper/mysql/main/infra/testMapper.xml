@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.infra.test.TestDao">
+
+	<resultMap type="com.example.demo.infra.test.TestDto" id="resultObj"></resultMap>
+	
+	<select id="selectOneLogin" resultMap="resultObj">
+		select
+			a.testSeq
+		    ,a.testId
+		    ,a.testPassword
+		from
+			testMember a
+		where a.testId= #{testId} and testPassword = #{testPassword}
+	</select>
+	  
+</mapper>

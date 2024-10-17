@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ko">
+
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Meta -->
+		<meta name="description" content="Vivo - Responsive Bootstrap 5 Dashboard Template">
+		<meta name="author" content="Bootstrap Gallery" />
+		<link rel="canonical" href="https://www.bootstrap.gallery/">
+		<meta property="og:url" content="https://www.bootstrap.gallery">
+		<meta property="og:title" content="Admin Templates - Dashboard Templates | Bootstrap Gallery">
+		<meta property="og:description" content="Marketplace for Bootstrap Admin Dashboards">
+		<meta property="og:type" content="Website">
+		<meta property="og:site_name" content="Bootstrap Gallery">
+		<link rel="shortcut icon" href="/xdm/v1/template/vivo copy/assets/images/favicon.svg">
+
+		<!-- Title -->
+		<title>Vivo Admin Template - Admin Dashboard</title>
+
+
+		<!-- *************
+			************ Common Css Files *************
+		************ -->
+
+		<!-- Animated css -->
+		<link rel="stylesheet" href="/xdm/v1/template/vivo copy/assets/css/animate.css">
+
+		<!-- Bootstrap font icons css -->
+		<link rel="stylesheet" href="/xdm/v1/template/vivo copy/assets/fonts/bootstrap/bootstrap-icons.css">
+
+		<!-- Main css -->
+		<link rel="stylesheet" href="/xdm/v1/template/vivo copy/assets/css/main.min.css">
+
+
+	</head>
+
+	<body class="login-container">
+
+		<!-- Loading wrapper start -->
+		<!-- <div id="loading-wrapper">
+			<div class="spinner">
+                <div class="line1"></div>
+				<div class="line2"></div>
+				<div class="line3"></div>
+				<div class="line4"></div>
+				<div class="line5"></div>
+				<div class="line6"></div>
+            </div>
+		</div> -->
+		<!-- Loading wrapper end -->
+
+		<!-- Login box start -->
+		<form id = "form" name = "form" method = "post" action = "/xdmLogin">
+			<div class="login-box">
+				<div class="login-form">
+					<a href="index.html" class="login-logo">
+						<img src="/xdm/v1/template/vivo copy/assets/images/logo.svg" alt="Vico Admin" />
+					</a>
+					<div class="login-welcome">
+						테스트 로그인
+					</div>
+					<div class="mb-3">
+							<label for="testId" class="form-label">아이디</label>
+							<input type="text" id="testId" name="testId" class="form-control" autocomplete="off" required="">
+							<div id="idError" class="text-danger" style="display: none;"></div>
+					</div>
+					<div class="mb-3">
+						<div class="d-flex justify-content-between">
+							<label class="form-label">비밀번호</label>
+							<a href="forgot-password.html" class="btn-link ml-auto">비밀번호를 잊으셨나요?</a>
+						</div>
+						<input id="testPassword" name="testPassword" type="testPassword" class="form-control">
+						<div id="passwordError" class="text-danger" style="display: none;"></div>
+					</div>
+					<div class="login-form-actions">
+						<button id="btnLogin" type="button" class="btn"> <i class="bi bi-arrow-right-circle"></i> </span>
+							로그인</button>
+					</div>
+				</div>
+			</div>
+			<div class="modals-placeholder">
+                	<div class="modal fade" id="verticallyCentered"  tabindex="-1" aria-labelledby="verticallyCenteredLabel"
+						aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="verticallyCenteredLabel"></h5>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body" id="verticallyCenteredLabel2">
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-primary" data-bs-dismiss="modal">닫기</button>
+								</div>
+							</div>
+						</div>
+					</div>
+                </div>
+		</form>
+		<!-- Login box end -->
+
+		<!-- *************
+			************ Required JavaScript Files *************
+		************* -->
+		<!-- Required jQuery first, then Bootstrap Bundle JS -->
+		<script src="/xdm/v1/template/vivo copy/assets/js/jquery.min.js"></script>
+		<script src="/xdm/v1/template/vivo copy/assets/js/bootstrap.bundle.min.js"></script>
+		<script src="/xdm/v1/template/vivo copy/assets/js/modernizr.js"></script>
+		<script src="/xdm/v1/template/vivo copy/assets/js/moment.js"></script>
+
+		<!-- *************
+			************ Vendor Js Files *************
+		************* -->
+
+		<!-- Main Js Required -->
+		<script src="/xdm/v1/template/vivo copy/assets/js/main.js"></script>
+		
+		<script type="text/javascript">
+		document.getElementById("btnLogin").onclick = function (){
+			const testId = document.getElementById("testId");
+			const testIdValue = document.getElementById("testId").value.trim();
+			const testIdError = document.getElementById("testIdError");
+			
+			var testIdRegExp = /^[a-zA-Z][0-9a-zA-Z]{0,11}$/;
+			if(!testIdRegExp.test(testIdValue)){
+				testIdError.innerText = "아이디 입력해주세요.";
+				testIdError.style.display="";
+				testId.classList.add("is-invalid");
+				testId.classList.remove("is-valid");
+				testId.focus();
+				return false;
+		    } else {
+		    	testIdError.style.display = "none";
+		    	testId.classList.remove("is-invalid");
+		    	testId.classList.add("is-valid");
+		    }
+			
+			const testPassword = document.getElementById("testPassword");
+			const testPasswordValue = document.getElementById("testPassword").value.trim();
+			const testPasswordError = document.getElementById("testPasswordError");
+			
+			var testPasswordRegExp = /^(?=.*[a-zA-Z])(?=.*[!@])(?=.*[0-9]).{8,15}$/
+			if(!testPasswordRegExp.test(testPasswordValue)){
+				testPasswordError.innerText = "비밀번호 입력해주세요.";
+				testPasswordError.style.display="";
+				testPassword.classList.add("is-invalid");
+				testPassword.classList.remove("is-valid");
+				testPassword.focus();
+				return false;
+		    } else {
+		    	testPasswordError.style.display = "none";
+		    	testPassword.classList.remove("is-invalid");
+		    	testPassword.classList.add("is-valid");
+		    }
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				/* ,dataType:"json" */
+				,url: "/signinTestProc"
+				/* ,data : $("#formLogin").serialize() */
+				,data : { "id" : $("#id").val(), "password" : $("#password").val()}
+				,success: function(response) {
+					if(response.rt == "success") {
+						if(response.changePwd == "true") {
+							location.href = "";
+						} else {
+							location.href = "/testIndex";
+						}
+					} else {
+				 		document.getElementById("verticallyCenteredLabel").innerText = "확 인";
+				 		document.getElementById("verticallyCenteredLabel2").innerText = "일치하는 회원이 존재 하지 않습니다!";
+				 		$("#verticallyCentered").modal("show");
+					}
+				}
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});	
+		}
+		
+		var input = document.getElementById("testPassword");
+
+		input.addEventListener("keypress", function(event) {
+		  if (event.key === "Enter") {
+		    event.preventDefault();
+		    document.getElementById("btnLogin").click();
+		  }
+		});
+		
+		</script>
+
+	</body>
+
+</html>
